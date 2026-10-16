@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة حَقّك — HAQQAK | المطور المؤسس المهندس سجاد مشتاق</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            navy: '#1e293b',
+                            gold: '#d97706',
+                            accent: '#2563eb',
+                            success: '#059669',
+                            bg: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-bg text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <header class="bg-brand-dark text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-brand-gold p-2 rounded-lg text-white font-bold text-xl">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">حَقّك <span class="text-xs bg-brand-gold text-slate-900 font-bold px-2 py-0.5 rounded mr-1">HAQQAK</span></h1>
+                    <p class="text-xs text-slate-400">بإشراف وتطوير: <span class="text-amber-400 font-semibold">المهندس سجاد مشتاق</span></p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+                <a href="#search" class="hover:text-white transition">البحث عن معاملة</a>
+                <a href="#services" class="hover:text-white transition">الخدمات المتاحة</a>
+                <a href="#about" class="hover:text-white transition">المؤسس والمطور</a>
+            </nav>
+
+            <div>
+                <button onclick="scrollToSearch()" class="bg-brand-accent hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    ابدأ الآن <i class="fa-solid fa-arrow-left mr-1"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-brand-dark to-slate-900 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            
+            <!-- شارة المهندس والمؤسس في منتصف الواجهة -->
+            <div class="inline-flex items-center gap-2 bg-slate-800/90 text-amber-400 border border-amber-500/30 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
+                <i class="fa-solid fa-code text-brand-accent"></i>
+                <span>المطور المؤسس: المهندس سجاد مشتاق</span>
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                اكتب اسم المعاملة... ونحن نرتب لك المستمسكات والخطوات والرسوم
+            </h2>
+            <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
+                منصة تهدف لتقليل التخبط والمراجعات العشوائية، توفر لك المعلومات والرسوم الرسمية والجهات المعنية بدقة عالية.
+            </p>
+
+            <!-- Search Bar -->
+            <div id="search" class="pt-4 max-w-2xl mx-auto relative">
+                <div class="relative flex items-center">
+                    <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="ابحث عن معاملة (مثلاً: البطاقة الوطنية، نقل ملكية سيارة، جواز سفر)..." 
+                           class="w-full py-4 pr-12 pl-4 text-slate-900 rounded-xl shadow-lg border-2 border-transparent focus:border-brand-gold focus:outline-none text-sm md:text-base">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 text-slate-400 text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Profile Banner -->
+    <section id="about" class="bg-white border-b border-slate-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-full flex items-center justify-center text-xl font-bold border-2 border-amber-500">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">المطور المؤسس: المهندس سجاد مشتاق</h3>
+                    <p class="text-xs text-slate-500">منصة حَقّك — HAQQAK | مشروع رقمي يهدف لتسهيل الإجراءات والخدمات الحكومية للمواطنين</p>
+                </div>
+            </div>
+            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs px-3 py-1.5 rounded-lg font-semibold">
+                <i class="fa-solid fa-circle-check text-emerald-600 ml-1"></i> النسخة الرسمية المعتمَدة
+            </span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <main class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full" id="services">
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900">المعاملات الأكثر طلباً</h3>
+                <p class="text-xs text-slate-500 mt-1">اختر المعاملة للاطلاع على المستمسكات المطلوبة والرسوم والخطوات</p>
+            </div>
+        </div>
+
+        <!-- Services Grid -->
+        <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Items injected by JavaScript -->
+        </div>
+
+        <div id="noResults" class="hidden text-center py-12 text-slate-500">
+            <i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-300"></i>
+            <p>لم يتم العثور على معاملة بهذا الاسم، جرب البحث بكلمات أخرى.</p>
+        </div>
+    </main>
+
+    <!-- Modal Modal -->
+    <div id="detailsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <div class="sticky top-0 bg-brand-dark text-white p-5 flex justify-between items-center border-b border-slate-700">
+                <h3 id="modalTitle" class="text-xl font-bold"></h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <!-- Agency & Cost Badges -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-blue-50 text-blue-700 border border-blue-200 text-xs px-3 py-1.5 rounded-lg font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-building"></i> <span id="modalAgency"></span>
+                    </span>
+                    <span class="bg-amber-50 text-amber-700 border border-amber-200 text-xs px-3 py-1.5 rounded-lg font-medium flex items-center gap-1">
+                        <i class="fa-solid fa-coins"></i> <span id="modalCost"></span>
+                    </span>
+                </div>
+
+                <!-- Required Documents -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-brand-gold"></i> المستمسكات والوثائق المطلوبة:
+                    </h4>
+                    <ul id="modalDocs" class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700">
+                    </ul>
+                </div>
+
+                <!-- Steps -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-brand-accent"></i> خطوات الإنجاز بالتتابع:
+                    </h4>
+                    <ol id="modalSteps" class="space-y-3 text-sm text-slate-700">
+                    </ol>
+                </div>
+
+                <!-- Important Note -->
+                <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-lg text-xs text-red-800">
+                    <p class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> تنبيه هام:</p>
+                    <p id="modalNote">يرجى التأكد من المواعيد الرسمية للدوائر وتجنب التعامل مع المعقبين غير المعتمدين.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 border-t text-left">
+                <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-semibold">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-8 border-t border-slate-800 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p class="font-bold text-slate-200 text-sm">منصة حَقّك — HAQQAK</p>
+            <p>تم التصميم والتطوير بواسطة: <span class="text-amber-400 font-bold">المطور المؤسس المهندس سجاد مشتاق</span></p>
+            <p class="text-slate-500">جميع الحقوق محفوظة © 2026</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        const servicesData = [
+            {
+                id: 1,
+                title: "اصدار البطاقة الوطنية الموحدة",
+                agency: "مديرية الأحوال المدنية والجوازات والإقامة",
+                cost: "5,000 دينار عراقي (للأول مرة)",
+                docs: [
+                    "البطاقة التموينية الأصلية + نسخة منها",
+                    "شهادة الجنسية العراقي (أصلية)",
+                    "هوية الأحوال المدنية القديمة (أصلية)",
+                    "بطاقة السكن باسم رب الأسرة (أصلية + مصورة)",
+                    "استمارة الحجز الإلكتروني المطبوعة"
+                ],
+                steps: [
+                    "الحجز عبر المنصة الإلكترونية المخصصة للبطاقة الوطنية.",
+                    "الحضور في الموعد المحدد للائرة مع المستمسكات الأصلية.",
+                    "تدقيق البيانات وتدقيق بصمة العين والأصابع والصورة الشخصية.",
+                    "دفع الرسوم الرسمية والحصول على وصل الاستلام.",
+                    "مراجعة الدائرة في الموعد المحدد للاستلام."
+                ],
+                note: "احرص على أخذ المستمسكات الأصلية كاملة مع نسخ مصورة لتجنب تأخير المعاملة."
+            },
+            {
+                id: 2,
+                title: "اصدار / تجديد الجواز الإلكتروني",
+                agency: "مديرية الجوازات العامة",
+                cost: "91,000 دينار عراقي",
+                docs: [
+                    "البطاقة الوطنية الموحدة (أصلية)",
+                    "بطاقة السكن (أصلية)",
+                    "بطاقة دفع إلكتروني (MasterCard / Visa) المعتمدة للدفع",
+                    "الجواز القديم (في حال التجديد)"
+                ],
+                steps: [
+                    "مراجعة مكاتب الجواز الإلكتروني أو التقديم عبر التطبيق المخصص.",
+                    "تقديم البطاقة الوطنية وبطاقة السكن للتدقيق الفوري.",
+                    "أخذ أبعاد الوجه والبصمات والتوقيع الرقمي.",
+                    "دفع الرسوم إلكترونياً داخل المرفق.",
+                    "طباعة الجواز واستلامه بنفس اليوم أو حسب توجيهات المكتب."
+                ],
+                note: "الدفع يتم إلكترونياً بالكامل، احرص على توفر بطاقة دفع إلكتروني بها رصيد كافٍ."
+            },
+            {
+                id: 3,
+                title: "نقل ملكية مركبة (تحويل سيارة)",
+                agency: "مديرية المرور العامة",
+                cost: "تختلف حسب نوع وحجم المركبة والسنوية",
+                docs: [
+                    "سنوية المركبة (أصلية)",
+                    "البطاقة الوطنية للبائع والمشتري",
+                    "بطاقة السكن للمشتري",
+                    "عقد البيع والشراء الأولائي أو المباشر",
+                    "تقرير الفحص الهزة (الفحص الفني)"
+                ],
+                steps: [
+                    "إجراء الفحص الفني للمركبة (الهزة) والتأكد من سلامتها.",
+                    "تدقيق الغرامات والموقف المروري للمركبة والبائع.",
+                    "توجه البائع والمشتري لمنفذ التسجيل لإكمال العقد والرسم القانوني.",
+                    "دفع الرسوم المرورية والضريبية.",
+                    "استلام السنوية الجديدة باسم المشتري."
+                ],
+                note: "تأكد من عدم وجود غرامات تراكمية أو حجز قضائي على المركبة قبل الشراء."
+            },
+            {
+                id: 4,
+                title: "إصدار بطاقة السكن",
+                agency: "مكاتب معلومات السكن / وزارة الداخلية",
+                cost: "رسوم رمزية بسيطة (حسب الضوابط)",
+                docs: [
+                    "تأييد المختار معتمد من القائممقامية أو الناحية",
+                    "البطاقات الوطنية لجميع أفراد العائلة",
+                    "البطاقة التموينية",
+                    "عقد إيجار ملكي أو سند ملكية دار السكن"
+                ],
+                steps: [
+                    "استحصال تأييد سكن من مختار المنطقة.",
+                    "مراجعة مكتب معلومات المنطقة التابع لمديرية الأحوال.",
+                    "تقديم الأوراق الثبوتية لتدقيق السجلات.",
+                    "دفع الرسوم واستلام بطاقة السكن الرسمية."
+                ],
+                note: "يجب حضور رب الأسرة أو من ينوب عنه قانوناً بكفالة رسمية."
+            }
+        ];
+
+        function displayServices(data) {
+            const grid = document.getElementById('servicesGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+
+            if(data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach(item => {
+                const card = `
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xs font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">
+                                    <i class="fa-solid fa-building text-brand-gold ml-1"></i> ${item.agency}
+                                </span>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h4>
+                            <p class="text-xs text-slate-500 mb-4">
+                                <i class="fa-solid fa-coins text-amber-500 ml-1"></i> الرسوم: ${item.cost}
+                            </p>
+                        </div>
+                        <button onclick="openModal(${item.id})" class="w-full bg-slate-100 hover:bg-brand-dark hover:text-white text-slate-800 text-sm font-semibold py-2 rounded-lg transition duration-200">
+                            عرض التفاصيل والمستمسكات <i class="fa-solid fa-chevron-left mr-1 text-xs"></i>
+                        </button>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function filterServices() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = servicesData.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.agency.toLowerCase().includes(query)
+            );
+            displayServices(filtered);
+        }
+
+        function openModal(id) {
+            const item = servicesData.find(s => s.id === id);
+            if(!item) return;
+
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalAgency').innerText = item.agency;
+            document.getElementById('modalCost').innerText = item.cost;
+            document.getElementById('modalNote').innerText = item.note;
+
+            const docsList = document.getElementById('modalDocs');
+            docsList.innerHTML = item.docs.map(doc => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> ${doc}</li>`).join('');
+
+            const stepsList = document.getElementById('modalSteps');
+            stepsList.innerHTML = item.steps.map((step, idx) => `
+                <li class="flex items-start gap-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
+                    <span class="bg-brand-dark text-white text-xs w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
+                    <span>${step}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('detailsModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+        }
+
+        function scrollToSearch() {
+            document.getElementById('search').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('searchInput').focus();
+        }
+
+        displayServices(servicesData);
+    </script>
+</body>
+</html>
