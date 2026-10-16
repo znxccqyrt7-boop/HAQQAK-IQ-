@@ -34,7 +34,7 @@
 </head>
 <body class="bg-brand-bg text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Navbar -->
+    <!-- Header / Navbar -->
     <header class="bg-brand-dark text-white sticky top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -49,39 +49,39 @@
             
             <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
                 <a href="#search" class="hover:text-white transition">البحث عن معاملة</a>
-                <a href="#services" class="hover:text-white transition">الخدمات المتاحة</a>
-                <a href="#about" class="hover:text-white transition">المؤسس والمطور</a>
+                <a href="#services" class="hover:text-white transition">جميع الدوائر</a>
+                <a href="#about" class="hover:text-white transition">عن المؤسس</a>
             </nav>
 
             <div>
                 <button onclick="scrollToSearch()" class="bg-brand-accent hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
-                    ابدأ الآن <i class="fa-solid fa-arrow-left mr-1"></i>
+                    ابدأ البحث <i class="fa-solid fa-arrow-left mr-1"></i>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-brand-dark to-slate-900 text-white py-16 px-4">
+    <section class="bg-gradient-to-b from-brand-dark to-slate-900 text-white py-12 px-4">
         <div class="max-w-4xl mx-auto text-center space-y-6">
             
-            <!-- شارة المهندس والمؤسس في منتصف الواجهة -->
+            <!-- شارة المطور المؤسس -->
             <div class="inline-flex items-center gap-2 bg-slate-800/90 text-amber-400 border border-amber-500/30 px-4 py-2 rounded-full text-xs md:text-sm font-bold shadow-lg">
                 <i class="fa-solid fa-code text-brand-accent"></i>
                 <span>المطور المؤسس: المهندس سجاد مشتاق</span>
             </div>
 
             <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
-                اكتب اسم المعاملة... ونحن نرتب لك المستمسكات والخطوات والرسوم
+                دليل الإجراءات والمستمسكات لكل الدوائر الحكومية العراقية
             </h2>
             <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-                منصة تهدف لتقليل التخبط والمراجعات العشوائية، توفر لك المعلومات والرسوم الرسمية والجهات المعنية بدقة عالية.
+                شامل لدوائر الأحوال، المرور، الجوازات، التسجيل العقاري، الضريبة، التقاعد، وزارة التربية والتعليم، القضاء، والشركات.
             </p>
 
             <!-- Search Bar -->
-            <div id="search" class="pt-4 max-w-2xl mx-auto relative">
+            <div id="search" class="pt-2 max-w-2xl mx-auto relative">
                 <div class="relative flex items-center">
-                    <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="ابحث عن معاملة (مثلاً: البطاقة الوطنية، نقل ملكية سيارة، جواز سفر)..." 
+                    <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="ابحث باسم المعاملة أو اسم الدائرة الحكومية..." 
                            class="w-full py-4 pr-12 pl-4 text-slate-900 rounded-xl shadow-lg border-2 border-transparent focus:border-brand-gold focus:outline-none text-sm md:text-base">
                     <i class="fa-solid fa-magnifying-glass absolute right-4 text-slate-400 text-lg"></i>
                 </div>
@@ -89,57 +89,65 @@
         </div>
     </section>
 
+    <!-- Category Filter Bar -->
+    <div class="bg-white border-b border-slate-200 sticky top-[72px] z-40 shadow-sm overflow-x-auto">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex gap-2 no-scrollbar" id="categoryButtons">
+            <!-- Injected by JS -->
+        </div>
+    </div>
+
     <!-- Developer Profile Banner -->
-    <section id="about" class="bg-white border-b border-slate-200 py-6">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-right">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-slate-900 text-amber-400 rounded-full flex items-center justify-center text-xl font-bold border-2 border-amber-500">
+    <section id="about" class="bg-slate-100 border-b border-slate-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-right">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-900 text-amber-400 rounded-full flex items-center justify-center text-lg font-bold border border-amber-500">
                     <i class="fa-solid fa-user-gear"></i>
                 </div>
                 <div>
-                    <h3 class="text-base font-bold text-slate-900">المطور المؤسس: المهندس سجاد مشتاق</h3>
-                    <p class="text-xs text-slate-500">منصة حَقّك — HAQQAK | مشروع رقمي يهدف لتسهيل الإجراءات والخدمات الحكومية للمواطنين</p>
+                    <h3 class="text-sm font-bold text-slate-900">إشراف وتصميم: المهندس سجاد مشتاق</h3>
+                    <p class="text-xs text-slate-500">منصة حَقّك — HAQQAK | موسوعة المعاملات والدوائر الرسمية بالعراق</p>
                 </div>
             </div>
-            <span class="bg-amber-50 text-amber-800 border border-amber-200 text-xs px-3 py-1.5 rounded-lg font-semibold">
-                <i class="fa-solid fa-circle-check text-emerald-600 ml-1"></i> النسخة الرسمية المعتمَدة
+            <span class="bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs px-3 py-1 rounded-lg font-semibold">
+                <i class="fa-solid fa-check-double text-emerald-600 ml-1"></i> بيانات موثوقة ومحدثة 2026
             </span>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <main class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full" id="services">
-        <div class="flex justify-between items-center mb-8">
+    <!-- Services Grid Main -->
+    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full" id="services">
+        <div class="flex justify-between items-center mb-6">
             <div>
-                <h3 class="text-2xl font-bold text-slate-900">المعاملات الأكثر طلباً</h3>
-                <p class="text-xs text-slate-500 mt-1">اختر المعاملة للاطلاع على المستمسكات المطلوبة والرسوم والخطوات</p>
+                <h3 class="text-xl font-bold text-slate-900" id="sectionTitle">جميع المعاملات والدوائر الحكومية</h3>
+                <p class="text-xs text-slate-500 mt-0.5">انقر على أي معاملة لعرض المستمسكات والخطوات والرسوم الرسمية</p>
             </div>
+            <span id="itemsCount" class="bg-slate-200 text-slate-800 text-xs font-bold px-3 py-1 rounded-full"></span>
         </div>
 
-        <!-- Services Grid -->
         <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Items injected by JavaScript -->
+            <!-- Services injected by JS -->
         </div>
 
-        <div id="noResults" class="hidden text-center py-12 text-slate-500">
-            <i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-300"></i>
-            <p>لم يتم العثور على معاملة بهذا الاسم، جرب البحث بكلمات أخرى.</p>
+        <div id="noResults" class="hidden text-center py-16 text-slate-500">
+            <i class="fa-solid fa-folder-open text-5xl mb-3 text-slate-300"></i>
+            <p class="font-bold text-lg">لم يتم العثور على معاملة مطابقة</p>
+            <p class="text-xs text-slate-400 mt-1">تأكد من كتابة الكلمات بشكل صحيح أو تصفح الأقسام الرئيسية</p>
         </div>
     </main>
 
-    <!-- Modal Modal -->
+    <!-- Details Modal -->
     <div id="detailsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
             <div class="sticky top-0 bg-brand-dark text-white p-5 flex justify-between items-center border-b border-slate-700">
-                <h3 id="modalTitle" class="text-xl font-bold"></h3>
+                <h3 id="modalTitle" class="text-lg font-bold"></h3>
                 <button onclick="closeModal()" class="text-slate-400 hover:text-white text-xl">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
             <div class="p-6 space-y-6">
-                <!-- Agency & Cost Badges -->
-                <div class="flex flex-wrap gap-3">
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-2">
                     <span class="bg-blue-50 text-blue-700 border border-blue-200 text-xs px-3 py-1.5 rounded-lg font-medium flex items-center gap-1">
                         <i class="fa-solid fa-building"></i> <span id="modalAgency"></span>
                     </span>
@@ -148,33 +156,33 @@
                     </span>
                 </div>
 
-                <!-- Required Documents -->
+                <!-- Docs -->
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-sm">
                         <i class="fa-solid fa-id-card text-brand-gold"></i> المستمسكات والوثائق المطلوبة:
                     </h4>
-                    <ul id="modalDocs" class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-700">
+                    <ul id="modalDocs" class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs md:text-sm text-slate-700">
                     </ul>
                 </div>
 
                 <!-- Steps -->
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2 text-sm">
                         <i class="fa-solid fa-list-check text-brand-accent"></i> خطوات الإنجاز بالتتابع:
                     </h4>
-                    <ol id="modalSteps" class="space-y-3 text-sm text-slate-700">
+                    <ol id="modalSteps" class="space-y-2.5 text-xs md:text-sm text-slate-700">
                     </ol>
                 </div>
 
-                <!-- Important Note -->
-                <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-lg text-xs text-red-800">
-                    <p class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> تنبيه هام:</p>
-                    <p id="modalNote">يرجى التأكد من المواعيد الرسمية للدوائر وتجنب التعامل مع المعقبين غير المعتمدين.</p>
+                <!-- Note -->
+                <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-lg text-xs text-amber-900">
+                    <p class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> تنبيه وإرشادات:</p>
+                    <p id="modalNote"></p>
                 </div>
             </div>
 
             <div class="bg-slate-50 p-4 border-t text-left">
-                <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-lg text-sm font-semibold">إغلاق</button>
+                <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-lg text-xs font-semibold">إغلاق النافذة</button>
             </div>
         </div>
     </div>
@@ -183,101 +191,456 @@
     <footer class="bg-brand-dark text-slate-400 py-8 border-t border-slate-800 text-xs text-center">
         <div class="max-w-7xl mx-auto px-4 space-y-3">
             <p class="font-bold text-slate-200 text-sm">منصة حَقّك — HAQQAK</p>
-            <p>تم التصميم والتطوير بواسطة: <span class="text-amber-400 font-bold">المطور المؤسس المهندس سجاد مشتاق</span></p>
-            <p class="text-slate-500">جميع الحقوق محفوظة © 2026</p>
+            <p>تطوير وإدارة: <span class="text-amber-400 font-bold">المطور المؤسس المهندس سجاد مشتاق</span></p>
+            <p class="text-slate-500">مشروع خدمي رقمي يهدف لتسهيل الإجراءات الحكومية لجميع المواطنين © 2026</p>
         </div>
     </footer>
 
-    <!-- JavaScript logic -->
+    <!-- Database & JavaScript -->
     <script>
+        // قاعدة بيانات موسعة وشاملة لجميع الدوائر الحكومية
         const servicesData = [
+            // --- 1. الداخلية والأحوال والجوازات ---
             {
                 id: 1,
+                category: "احوال_جوازات",
+                categoryName: "الأحوال والجوازات",
                 title: "اصدار البطاقة الوطنية الموحدة",
                 agency: "مديرية الأحوال المدنية والجوازات والإقامة",
-                cost: "5,000 دينار عراقي (للأول مرة)",
+                cost: "5,000 دينار عراقي",
                 docs: [
                     "البطاقة التموينية الأصلية + نسخة منها",
-                    "شهادة الجنسية العراقي (أصلية)",
+                    "شهادة الجنسية العراقية القديمة (أصلية)",
                     "هوية الأحوال المدنية القديمة (أصلية)",
                     "بطاقة السكن باسم رب الأسرة (أصلية + مصورة)",
-                    "استمارة الحجز الإلكتروني المطبوعة"
+                    "وصل الحجز الإلكتروني المطبوع"
                 ],
                 steps: [
-                    "الحجز عبر المنصة الإلكترونية المخصصة للبطاقة الوطنية.",
-                    "الحضور في الموعد المحدد للائرة مع المستمسكات الأصلية.",
-                    "تدقيق البيانات وتدقيق بصمة العين والأصابع والصورة الشخصية.",
-                    "دفع الرسوم الرسمية والحصول على وصل الاستلام.",
-                    "مراجعة الدائرة في الموعد المحدد للاستلام."
+                    "الحجز عبر المنصة الإلكترونية الرسمية للبطاقة الوطنية.",
+                    "الحضور بموعد الحجز المكتوب في الاستمارة مع كافة الوثائق.",
+                    "التدقيق وتدقيق بصمة العين والأصابع والصورة الشخصية.",
+                    "دفع الرسوم الرسمية واستلام وصل المراجعة.",
+                    "استلام البطاقة في الوقت المحدد من الدائرة."
                 ],
-                note: "احرص على أخذ المستمسكات الأصلية كاملة مع نسخ مصورة لتجنب تأخير المعاملة."
+                note: "اصطحب كل الأوراق الأصلية مع نسخ مصورة لتفادي تأخير المعاملة."
             },
             {
                 id: 2,
+                category: "احوال_جوازات",
+                categoryName: "الأحوال والجوازات",
                 title: "اصدار / تجديد الجواز الإلكتروني",
                 agency: "مديرية الجوازات العامة",
                 cost: "91,000 دينار عراقي",
                 docs: [
                     "البطاقة الوطنية الموحدة (أصلية)",
                     "بطاقة السكن (أصلية)",
-                    "بطاقة دفع إلكتروني (MasterCard / Visa) المعتمدة للدفع",
+                    "بطاقة دفع إلكتروني (MasterCard/Visa) مشحونة",
                     "الجواز القديم (في حال التجديد)"
                 ],
                 steps: [
-                    "مراجعة مكاتب الجواز الإلكتروني أو التقديم عبر التطبيق المخصص.",
-                    "تقديم البطاقة الوطنية وبطاقة السكن للتدقيق الفوري.",
-                    "أخذ أبعاد الوجه والبصمات والتوقيع الرقمي.",
-                    "دفع الرسوم إلكترونياً داخل المرفق.",
-                    "طباعة الجواز واستلامه بنفس اليوم أو حسب توجيهات المكتب."
+                    "مراجعة مكتب الجواز الإلكتروني في منطقتك أو التقديم عبر التطبيق.",
+                    "تقديم البطاقة الوطنية وبطاقة السكن للتدقيق.",
+                    "التقاط الصور البايومترية وأخذ بصمات الأصابع والتوقيع.",
+                    "الدفع الإلكتروني المباشر بالمنفذ.",
+                    "استلام الجواز خلال فترة قصيرة حسب المنفذ."
                 ],
-                note: "الدفع يتم إلكترونياً بالكامل، احرص على توفر بطاقة دفع إلكتروني بها رصيد كافٍ."
+                note: "الدفع النقدي غير مقبول، يجب توفر بطاقة دفع إلكتروني بها رصيد كافٍ."
             },
             {
                 id: 3,
-                title: "نقل ملكية مركبة (تحويل سيارة)",
-                agency: "مديرية المرور العامة",
-                cost: "تختلف حسب نوع وحجم المركبة والسنوية",
+                category: "احوال_جوازات",
+                categoryName: "الأحوال والجوازات",
+                title: "اصدار بطاقة السكن",
+                agency: "مكاتب معلومات السكن / وزارة الداخلية",
+                cost: "رسوم رمزية قانونية",
                 docs: [
-                    "سنوية المركبة (أصلية)",
-                    "البطاقة الوطنية للبائع والمشتري",
-                    "بطاقة السكن للمشتري",
-                    "عقد البيع والشراء الأولائي أو المباشر",
-                    "تقرير الفحص الهزة (الفحص الفني)"
+                    "تأييد المختار معتمد من القائممقامية",
+                    "البطاقة الوطنية لجميع أفراد العائلة",
+                    "البطاقة التموينية",
+                    "سند ملكية الدار أو عقد إيجار مصدق"
                 ],
                 steps: [
-                    "إجراء الفحص الفني للمركبة (الهزة) والتأكد من سلامتها.",
-                    "تدقيق الغرامات والموقف المروري للمركبة والبائع.",
-                    "توجه البائع والمشتري لمنفذ التسجيل لإكمال العقد والرسم القانوني.",
-                    "دفع الرسوم المرورية والضريبية.",
-                    "استلام السنوية الجديدة باسم المشتري."
+                    "استحصال تأييد سكن مصدق من مختار المحلة.",
+                    "مراجعة مكتب معلومات السكن التابع لمركز الشرطة في المنطقة.",
+                    "تقديم المستمسكات للتدقيق بسجلات السكن.",
+                    "استلام بطاقة السكن الرسمية."
                 ],
-                note: "تأكد من عدم وجود غرامات تراكمية أو حجز قضائي على المركبة قبل الشراء."
+                note: "حضور رب الأسرة أو من ينوب عنه بوكالة رسمية شرط أساسي."
             },
+
+            // --- 2. المرور العامة ---
             {
                 id: 4,
-                title: "إصدار بطاقة السكن",
-                agency: "مكاتب معلومات السكن / وزارة الداخلية",
-                cost: "رسوم رمزية بسيطة (حسب الضوابط)",
+                category: "مرور",
+                categoryName: "مديرية المرور",
+                title: "نقل ملكية مركبة (تحويل سيارة)",
+                agency: "مديرية المرور العامة - مواقع التسجيل",
+                cost: "تعتمد على عدد الأسطوانات والموديل والسنوية",
                 docs: [
-                    "تأييد المختار معتمد من القائممقامية أو الناحية",
-                    "البطاقات الوطنية لجميع أفراد العائلة",
-                    "البطاقة التموينية",
-                    "عقد إيجار ملكي أو سند ملكية دار السكن"
+                    "سنوية المركبة الأصلية",
+                    "البطاقة الوطنية للبائع والمشتري",
+                    "بطاقة السكن للمشتري",
+                    "عقد البيع والشراء الابتدائي",
+                    "تقرير فحص الهزة (الفحص الفني)"
                 ],
                 steps: [
-                    "استحصال تأييد سكن من مختار المنطقة.",
-                    "مراجعة مكتب معلومات المنطقة التابع لمديرية الأحوال.",
-                    "تقديم الأوراق الثبوتية لتدقيق السجلات.",
-                    "دفع الرسوم واستلام بطاقة السكن الرسمية."
+                    "إجراء الفحص الفني (الهزة) للمركبة.",
+                    "تدقيق الغرامات والموقف المروري للبائع والمركبة.",
+                    "توجه الطرفين لضابط التسجيل لتنظيم العقد المروري.",
+                    "دفع الرسوم الضريبية والمرورية بالمنافذ الرسمية.",
+                    "استلام السنوية المطبوعة باسم المشتري الجديد."
                 ],
-                note: "يجب حضور رب الأسرة أو من ينوب عنه قانوناً بكفالة رسمية."
+                note: "تأكد من تسديد كافة الغرامات المرورية وعدم وجود إشارة حجز على المركبة."
+            },
+            {
+                id: 5,
+                category: "مرور",
+                categoryName: "مديرية المرور",
+                title: "اصدار / تجديد إجازة السوق (رخصة القيادة)",
+                agency: "مديرية المرور العامة",
+                cost: "حسب الفئة (خصوصي / عمومي)",
+                docs: [
+                    "البطاقة الوطنية الموحدة (أصلية + مصورة)",
+                    "بطاقة السكن (أصلية + مصورة)",
+                    "صور شخصية عدد (4)",
+                    "فحص اللياقة البدنية والنظر من المراكز الطبية المعتمدة"
+                ],
+                steps: [
+                    "إجراء الفحص الطبي للنظر واللياقة في مركز اللجان الطبية المرورية.",
+                    "مراجعة مجمعات المرور واختبار السياقة الشفهي والعميل.",
+                    "دفع الرسوم القانونية بأمانة الصندوق.",
+                    "التقاط الصورة والتوقيع ثم استلام إجازة السوق."
+                ],
+                note: "اجتياز الاختبار العملي بالسياقة شرط أساسي للحصول على الإجازة."
+            },
+
+            // --- 3. التسجيل العقاري والبلديات ---
+            {
+                id: 6,
+                category: "عقارات_بلدية",
+                categoryName: "العقارات والبلديات",
+                title: "نقل ملكية عقار (تحويل سند الدار/الأرض)",
+                agency: "مديرية التسجيل العقاري (الطابو)",
+                cost: "نسبة مئوية محددة من قيمة التقييم العقاري",
+                docs: [
+                    "سند العقار الحديث (نموذج طابو)",
+                    "البطاقة الوطنية للبائع والمشتري",
+                    "بطاقة السكن للمشتري",
+                    "براءة ذمة من البلدية وضريبة العقار",
+                    "خارطة العقار المحدثة من البلدية"
+                ],
+                steps: [
+                    "تقديم طلب البيع في دائرة التسجيل العقاري المختصة.",
+                    "إحالة المعاملة للبلدية والضريبة كشف التقييم الميداني.",
+                    "دفع المبالغ والضرائب المستحقة للبلدية والضريبة.",
+                    "إجراء الإقرار بالبيع أمام كاتب العدل أو الموظف المخول بالطابو.",
+                    "صدور السند الجديد باسم المشتري."
+                ],
+                note: "يتطلب كشفاً ميدانياً من الكشاف العقاري للتحقق من أوصاف العقار."
+            },
+            {
+                id: 7,
+                category: "عقارات_بلدية",
+                categoryName: "العقارات والبلديات",
+                title: "اصدار اجازة بناء / ترميم دار",
+                agency: "مديرية البلدية / القسم الهندسي",
+                cost: "رسوم مهندس ورسوم البلدية حسب المساحة",
+                docs: [
+                    "سند العقار الحديث (طابو)",
+                    "المخططات الهندسية المعمارية من مكتب هندسي مجاز",
+                    "البطاقة الوطنية لمالك العقار",
+                    "تأييد براءة ذمة بلدية ومجاري وكهرباء"
+                ],
+                steps: [
+                    "تقديم الطلب بالبلدية مع الخارطة الهندسية.",
+                    "إجراء الكشف الميداني من مهندس المنطقة.",
+                    "دفع رسوم الإجازة والنظافة وتامين الأرصفة.",
+                    "صدور إجازة البناء الرسمية."
+                ],
+                note: "البناء بدون إجازة يعرض المنشأة للغرامة والأوامر القضائية بإزالة المخالفة."
+            },
+
+            // --- 4. القضاء والعدل والشرعية ---
+            {
+                id: 8,
+                category: "قضاء_عدل",
+                categoryName: "القضاء والعدل",
+                title: "اصدار القسام الشرعي (توزيع التركة)",
+                agency: "محكمة الأحوال الشخصية",
+                cost: "رسوم محكمة رسمية بسيطة",
+                docs: [
+                    "شهادة وفاة المورث الرسمية",
+                    "البطاقات الوطنية لجميع الورثة الشرعيين",
+                    "طلب مقدم من أحد الورثة أو وكيله القانوني",
+                    "حضور شاهدين إثنين مع إثبات الشخصية"
+                ],
+                steps: [
+                    "تقديم طلب للقاضي في محكمة الأحوال الشخصية.",
+                    "إحالة الطلب لتدقيق شهادة الوفاة وحصر الورثة.",
+                    "تدوين أقوال الطلب وشاهدين للتعرف على الورثة.",
+                    "صدور القسام الشرعي وتحديده للحصص الشرعية."
+                ],
+                note: "يحدد القسام الأنصبة الشرعية الدقيقة للورثة لاستخدامها بالدوائر."
+            },
+            {
+                id: 9,
+                category: "قضاء_عدل",
+                categoryName: "القضاء والعدل",
+                title: "تسجيل عقد الزواج الرسمي",
+                agency: "محكمة الأحوال الشخصية",
+                cost: "رسوم محكمة قانونية",
+                docs: [
+                    "البطاقة الوطنية للزوج والزوجة",
+                    "بطاقة السكن لأحد الطرفين",
+                    "الفحص الطبي المسبق للزوجين من المركز الصحي",
+                    "حضور شاهدين إثنين مع المستمسكات"
+                ],
+                steps: [
+                    "إجراء الفحص الطبي لقبل الزواج بالمستشفى الحكومي.",
+                    "تقديم الطلب والاستمارة لكاتب محكمة الأحوال الشخصية.",
+                    "إجراء العقد أمام القاضي بحضور الطرفين والشهود.",
+                    "استلام عقد الزواج الرسمي المصدق."
+                ],
+                note: "الفحص الطبي إجباري ولا يتم العقد بدون تقرير السلامة."
+            },
+            {
+                id: 10,
+                category: "قضاء_عدل",
+                categoryName: "القضاء والعدل",
+                title: "عمل وكالة عامة / خاصة",
+                agency: "دائرة الكاتب العدل",
+                cost: "تعتمد على نوع الوكالة (خاصة أم عامة)",
+                docs: [
+                    "البطاقة الوطنية للموكل (أصلية)",
+                    "صور شخصية حديثة للموكل والوكيل",
+                    "معلومات الكترونية وتفاصيل الوكيل الكاملة",
+                    "سند العقار أو سنوية السيارة (في حال الوكالة الخاصة بمال)"
+                ],
+                steps: [
+                    "كتابة نص الوكالة وتحديد الصلاحيات بدقة.",
+                    "تقديم الوكالة لتدقيق الكاتب العدل.",
+                    "إقرار الموكل وبصمته أمام الكاتب العدل.",
+                    "استلام النسخة المصورة والمختومة للوكالة."
+                ],
+                note: "الوكالات العامة تقتضي الدقة العالية في الصلاحيات الممنوحة."
+            },
+
+            // --- 5. التقاعد والضمان الاجتماعي ---
+            {
+                id: 11,
+                category: "تقاعد_ضمان",
+                categoryName: "التقاعد والضمان الاجتماعي",
+                title: "اصدار الهوية التقاعدية",
+                agency: "الهيئة العامة للتقاعد الوطنية",
+                cost: "مجانية أو رسوم طفيفة للبطاقة الذكية",
+                docs: [
+                    "الأنفكاك والأمر الإداري بالإحالة على التقاعد",
+                    "البطاقة الوطنية الموحدة",
+                    "بطاقة السكن",
+                    "صور شخصية حديثة عدد (4)"
+                ],
+                steps: [
+                    "ورود الملف التقاعدي من الدائرة المتقاعد منها للهيئة.",
+                    "تدقيق احتساب الخدمة والراتب التقاعدي.",
+                    "إصدار الهوية التقاعدية وبطاقة صرف الراتب (Mastercard).",
+                    "تفعيل البطاقة واستلام الراتب من منافذ الصرف."
+                ],
+                note: "تأكد من متابعة إرسال الإضبارة التقاعدية من دائرتك السابقة."
+            },
+            {
+                id: 12,
+                category: "تقاعد_ضمان",
+                categoryName: "التقاعد والضمان الاجتماعي",
+                title: "شمول العمال بالضمان الاجتماعي",
+                agency: "دائرة التقاعد والضمان الاجتماعي للعمال",
+                cost: "اشتراك شهري بنسبة قانونية من الراتب",
+                docs: [
+                    "البطاقة الوطنية للعامل والمشغل",
+                    "عقد العمل أو تأييد العمل من صاحب المشروع",
+                    "بطاقة السكن للعامل",
+                    "صور شخصية عدد (2)"
+                ],
+                steps: [
+                    "تقديم طلب الشمول من صاحب العمل أو العامل بنفسه.",
+                    "إجراء الفحص والمتابعة من مفتش الضمان الاجتماعي.",
+                    "احتساب نسبة الاشتراك والتسجيل بقاعدة البيانات.",
+                    "إصدار رقم الضمان للعمل."
+                ],
+                note: "يضمن للعمال الراتب التقاعدي والضمان الصحي أثناء الخدمة."
+            },
+
+            // --- 6. الضريبة والشركات ---
+            {
+                id: 13,
+                category: "ضريبة_شركات",
+                categoryName: "الضريبة والتجارة",
+                title: "تأسيس شركة محدودة / مساهمة",
+                agency: "دائرة تسجيل الشركات - وزارة التجارة",
+                cost: "حسب رأس مال الشركة والنشر بالجريدة الرسمية",
+                docs: [
+                    "عقد تأسيس الشركة مصدق من محامي مجاز",
+                    "البطاقة الوطنية لجميع الشركاء والمؤسسين",
+                    "إيداع رأس المال ببنك معتمد وحساب باسم الشركة",
+                    "تأييد الاسم التجاري من اتحاد الغرف التجارية"
+                ],
+                steps: [
+                    "حجز الاسم التجاري لدى الغرفة التجارية.",
+                    "إعداد عقد التأسيس ومحضر الاجتماع الأول.",
+                    "فتح حساب بنكي وإيداع رأس المال المعلن.",
+                    "مراجعة دائرة تسجيل الشركات ودفع الرسوم وصدور شهادة التأسيس."
+                ],
+                note: "يتطلب تعيين محامي ومحاسب قانوني معتمد للشركة."
+            },
+            {
+                id: 14,
+                category: "ضريبة_شركات",
+                categoryName: "الضريبة والتجارة",
+                title: "استحصال الرقم الضريبي وبراءة الذمة",
+                agency: "الهيئة العامة للضرائب",
+                cost: "تعتمد على حجم الأرباح أو التقييم الضريبي",
+                docs: [
+                    "البطاقة الوطنية الموحدة",
+                    "عقد إيجار أو سند ملكية مقر العمل / المحل / العقار",
+                    "الهوية التجارية أو إجازة ممارسة المهنة",
+                    "آخر كشف حساب أو دفاتر تجارية (للشركات)"
+                ],
+                steps: [
+                    "فتح الملف الضريبي بالفرع المالي التابع لمنطقتك.",
+                    "إجراء تقدير التكليف الضريبي من المسهل الضريبي.",
+                    "تسديد المبالغ والضريبة المستحقة أصولياً.",
+                    "استلام كتاب براءة الذمة الضريبية."
+                ],
+                note: "براءة الذمة ضرورية لتجديد الإجازات وتحديث العقود الحكومية."
+            },
+
+            // --- 7. التربية والتعليم ---
+            {
+                id: 15,
+                category: "تربية_تعليم",
+                categoryName: "التربية والتعليم",
+                title: "تصديق الشهادات المدرسية والجامعية",
+                agency: "مديرية التربية / وزارة التعليم العالي",
+                cost: "طوابع وتصديق قانوني بسيط",
+                docs: [
+                    "وثيقة تخرج أصلية أو جدارية",
+                    "البطاقة الوطنية الموحدة",
+                    "كتاب طلب التصديق (في حال التقديم للخارج أو التوظيف)"
+                ],
+                steps: [
+                    "استخراج الوثيقة بالدرجات من المدرسة أو الكلية.",
+                    "مراجعة المديرية العامة للتربية أو قسم التصديقات بالجامعة.",
+                    "وضع الطوابع القانونية والختم الحقيقي.",
+                    "تصديق الخارجية (في حال الاستخدام خارج العراق)."
+                ],
+                note: "تأكد من مطابقة الاسم باللغة الإنكليزية مع الجواز في حال تصديق الخارجية."
+            },
+            {
+                id: 16,
+                category: "تربية_تعليم",
+                categoryName: "التربية والتعليم",
+                title: "تعادل الشهادات العربية والأجنبية",
+                agency: "دائرة البعثات والعلاقات الثقافية - وزارة التعليم العالي",
+                cost: "رسوم تقييم ومعادلة رسمية",
+                docs: [
+                    "الشهادة الأصلية وكشف الدرجات مصدقين من سفارة العراق بالخارج",
+                    "الأطروحة أو الرسالة (للدراسات العليا)",
+                    "جواز السفر وأختام الإقامة والدخول والخروج",
+                    "البطاقة الوطنية الموحدة"
+                ],
+                steps: [
+                    "التقديم عبر المنصة الإلكترونية لمعادلة الشهادات.",
+                    "تدقيق مدة الإقامة المقررة بالبلد المانح للشهادة.",
+                    "العرض على اللجان العلمية المختصة بالوزارة.",
+                    "صدور قرار التعادل وتصديقه."
+                ],
+                note: "شرط الإقامة الفعلية في بلد الدراسة أساسي لمعادلة الشهادات."
+            },
+
+            // --- 8. الصحة والخدمات العامة ---
+            {
+                id: 17,
+                category: "صحة_خدمات",
+                categoryName: "الصحة والخدمات",
+                title: "اصدار شهادة الولادة للطفل",
+                agency: "المستشفى / دائرة الصحة قسم الإحصاء",
+                cost: "رسوم رمزية بسيطة",
+                docs: [
+                    "تبليغ الولادة الصادر من المستشفى",
+                    "عقد الزواج الرسمي المصدق (أصلي)",
+                    "البطاقة الوطنية للأب والأم (أصلية)"
+                ],
+                steps: [
+                    "استلام استمارة الولادة من كادر الصالة بالمستشفى.",
+                    "مراجعة شعبة الإحصاء بالمستشفى لتدقيق المستمسكات.",
+                    "إحالة الشهادة لدائرة الصحة والنفوس لتسجيل الطفل.",
+                    "استلام شهادة الولادة الرسمية."
+                ],
+                note: "تسجيل الطفل خلال المدة القانونية الأولى يتفادى الغرامات التأخيرية."
+            },
+            {
+                id: 18,
+                category: "صحة_خدمات",
+                categoryName: "الصحة والخدمات",
+                title: "اصدار إجازة ممارسة مهنة / فتح محل تجاري",
+                agency: "البلدية + دائرة الصحة + الحرفيين",
+                cost: "تعتمد على نوع النشاط والمساحة",
+                docs: [
+                    "البطاقة الوطنية وبطاقة السكن",
+                    "عقد إيجار المحل أو سند الملكية",
+                    "الفحص الطبي والسلامة الصحية للعمال",
+                    "تأييد الدفاع المدني لمتطلبات السلامة"
+                ],
+                steps: [
+                    "تقديم طلب بالبلدية للحصول على إجازة الممارسة.",
+                    "إجراء الفحص الصحي والميداني من البيئة والصحة.",
+                    "توفير مطافئ الحريق وموافقات الدفاع المدني.",
+                    "تسديد الرسوم وصدور إجازة المهنة."
+                ],
+                note: "المحلات الغذائية والصحية تقتضي دفتر فحص طبي دوري للعاملين."
             }
         ];
 
+        // قائمة الفئات
+        const categories = [
+            { id: "all", name: "جميع المعاملات والدوائر", icon: "fa-list" },
+            { id: "احوال_جوازات", name: "الأحوال والجوازات", icon: "fa-id-card" },
+            { id: "مرور", name: "المرور والمركبات", icon: "fa-car" },
+            { id: "عقارات_بلدية", name: "العقارات والبلديات", icon: "fa-building" },
+            { id: "قضاء_عدل", name: "القضاء والعدلية", icon: "fa-scale-balanced" },
+            { id: "تقاعد_ضمان", name: "التقاعد والضمان", icon: "fa-users-gear" },
+            { id: "ضريبة_شركات", name: "الضريبة والشركات", icon: "fa-briefcase" },
+            { id: "تربية_تعليم", name: "التربية والتعليم", icon: "fa-graduation-cap" },
+            { id: "صحة_خدمات", name: "الصحة والخدمات", icon: "fa-notes-medical" }
+        ];
+
+        let activeCategory = "all";
+
+        // بناء أزرار الفئات
+        function renderCategories() {
+            const container = document.getElementById('categoryButtons');
+            container.innerHTML = categories.map(cat => `
+                <button onclick="setCategory('${cat.id}')" 
+                        class="px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition flex items-center gap-1.5 ${activeCategory === cat.id ? 'bg-brand-dark text-amber-400 border border-amber-500 shadow-sm' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">
+                    <i class="fa-solid ${cat.icon}"></i> ${cat.name}
+                </button>
+            `).join('');
+        }
+
+        // تغيير الفئة النشطة
+        function setCategory(catId) {
+            activeCategory = catId;
+            renderCategories();
+            filterServices();
+        }
+
+        // عرض بطاقات المعاملات
         function displayServices(data) {
             const grid = document.getElementById('servicesGrid');
             const noResults = document.getElementById('noResults');
+            const itemsCount = document.getElementById('itemsCount');
+            
             grid.innerHTML = '';
+            itemsCount.innerText = `${data.length} معاملة مجهزة`;
 
             if(data.length === 0) {
                 noResults.classList.remove('hidden');
@@ -288,20 +651,24 @@
 
             data.forEach(item => {
                 const card = `
-                    <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="text-xs font-semibold bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">
-                                    <i class="fa-solid fa-building text-brand-gold ml-1"></i> ${item.agency}
+                                <span class="text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded-md">
+                                    ${item.categoryName}
                                 </span>
                             </div>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2">${item.title}</h4>
+                            <h4 class="text-base font-bold text-slate-900 mb-2 leading-snug">${item.title}</h4>
+                            <p class="text-xs text-slate-600 mb-2">
+                                <i class="fa-solid fa-building-flag text-brand-accent ml-1"></i> ${item.agency}
+                            </p>
                             <p class="text-xs text-slate-500 mb-4">
-                                <i class="fa-solid fa-coins text-amber-500 ml-1"></i> الرسوم: ${item.cost}
+                                <i class="fa-solid fa-coins text-amber-500 ml-1"></i> الرسوم الرسمية: <span class="font-bold text-slate-700">${item.cost}</span>
                             </p>
                         </div>
-                        <button onclick="openModal(${item.id})" class="w-full bg-slate-100 hover:bg-brand-dark hover:text-white text-slate-800 text-sm font-semibold py-2 rounded-lg transition duration-200">
-                            عرض التفاصيل والمستمسكات <i class="fa-solid fa-chevron-left mr-1 text-xs"></i>
+                        <button onclick="openModal(${item.id})" class="w-full bg-slate-900 hover:bg-brand-accent text-white text-xs font-bold py-2.5 rounded-lg transition duration-200 flex items-center justify-center gap-1">
+                            <span>عرض المستمسكات والخطوات</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </button>
                     </div>
                 `;
@@ -309,15 +676,22 @@
             });
         }
 
+        // تصفية نتائج البحث
         function filterServices() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = servicesData.filter(item => 
-                item.title.toLowerCase().includes(query) || 
-                item.agency.toLowerCase().includes(query)
-            );
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            const filtered = servicesData.filter(item => {
+                const matchesCategory = (activeCategory === "all") || (item.category === activeCategory);
+                const matchesQuery = item.title.toLowerCase().includes(query) || 
+                                     item.agency.toLowerCase().includes(query) ||
+                                     item.categoryName.toLowerCase().includes(query);
+                return matchesCategory && matchesQuery;
+            });
+
             displayServices(filtered);
         }
 
+        // فتح النافذة التفصيلية
         function openModal(id) {
             const item = servicesData.find(s => s.id === id);
             if(!item) return;
@@ -328,12 +702,17 @@
             document.getElementById('modalNote').innerText = item.note;
 
             const docsList = document.getElementById('modalDocs');
-            docsList.innerHTML = item.docs.map(doc => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> ${doc}</li>`).join('');
+            docsList.innerHTML = item.docs.map(doc => `
+                <li class="flex items-start gap-2 bg-white p-2 rounded border border-slate-200">
+                    <i class="fa-solid fa-circle-check text-emerald-600 mt-1 shrink-0"></i> 
+                    <span>${doc}</span>
+                </li>
+            `).join('');
 
             const stepsList = document.getElementById('modalSteps');
             stepsList.innerHTML = item.steps.map((step, idx) => `
-                <li class="flex items-start gap-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-                    <span class="bg-brand-dark text-white text-xs w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
+                <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                    <span class="bg-slate-900 text-amber-400 font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
                     <span>${step}</span>
                 </li>
             `).join('');
@@ -350,6 +729,8 @@
             document.getElementById('searchInput').focus();
         }
 
+        // التهيئة الابتدائية
+        renderCategories();
         displayServices(servicesData);
     </script>
 </body>
